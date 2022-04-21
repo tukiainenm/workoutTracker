@@ -4,6 +4,8 @@ package com.example.workoutTracker.entities;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Exercise {
@@ -13,17 +15,15 @@ public class Exercise {
     private Long id;
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "categoryid")
-    @JsonManagedReference
-    private Category category;
+    @ManyToMany
+    private Set<Workout> workouts = new HashSet<>();
 
     public Exercise() {
     }
 
-    public Exercise(String name, Category category) {
+    public Exercise(String name) {
         this.name = name;
-        this.category = category;
+
     }
 
     public Long getId() {
@@ -42,13 +42,6 @@ public class Exercise {
         this.name = name;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 
     @Override
     public String toString() {

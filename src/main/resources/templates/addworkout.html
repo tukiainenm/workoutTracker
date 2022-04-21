@@ -12,14 +12,14 @@
 
 <form th:action="@{save}" method="post">
 <div class="form-group">
-    <label for="name">Workout Name</label>
+    <label for="name">Workout Name:</label>
     <input type="text" class="form-control" id="name" th:field="${workout.name}">
 
-    <label for="date">Date</label>
+    <label for="date">Date:</label>
     <input type="date" class="form-control" id="date" th:field="${workout.date}">
 </div>
 
-<div style="max-width:600px;">
+<div style="max-width: 700px">
     <label th:for="exercises">Add exercises</label>
     <list>
         <ul th:each="exercise : ${exercises}">

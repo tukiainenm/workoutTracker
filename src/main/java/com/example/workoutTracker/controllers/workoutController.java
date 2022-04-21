@@ -33,10 +33,10 @@ public class workoutController {
     }
 
 
-    @RequestMapping(value = "/tracker")
+    @RequestMapping(value = "/workouts")
     public String workoutList(Model model) {
         model.addAttribute("workouts", wRepository.findAll());
-        return "tracker";
+        return "workouts";
     }
 
     @RequestMapping(value = "/add")
@@ -49,25 +49,25 @@ public class workoutController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveExercise(@ModelAttribute Workout workout) {
         wRepository.save(workout);
-        return "redirect:tracker";
+        return "redirect:workouts";
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    public String deleteExercise(@PathVariable("id") Long id, Model model) {
-        eRepository.deleteById(id);
-        return "redirect:../tracker";
+    public String deleteWorkout(@PathVariable("id") Long id, Model model) {
+        wRepository.deleteById(id);
+        return "redirect:../workouts";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editExercise(@PathVariable("id") long id, Model model) {
-        model.addAttribute("exercise", eRepository.findById(id));
-        return "redirect:/tracker";
+        model.addAttribute("exercise", wRepository.findById(id));
+        return "redirect:/workouts";
     }
 
     @RequestMapping(value = "/process", method = RequestMethod.POST)
-    public String saveEditedExercise(@ModelAttribute Exercise exercise) {
-        eRepository.save(exercise);
-        return "redirect:../tracker";
+    public String saveEditedWorkout(@ModelAttribute Workout workout) {
+        wRepository.save(workout);
+        return "redirect:../workouts";
     }
 }
 

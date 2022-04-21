@@ -9,6 +9,25 @@
 <div th:replace="fragments :: header"></div>
 
 
-<h1>Here you can calculate your 1 rep max</h1>
+<h1>Calculate your estimated one rep max</h1>
+<p>Click the button calculate</p>
+
+<button class="btn btn-success align-content-center" onclick="calculate()">Calculate</button>
+
+<p id="oneRepMax"></p>
+
+<script>
+    function calculate() {
+        let weight = prompt("Weight lifted (kg):");
+        let reps = prompt("Number of reps:");
+        let oneRepMax = weight * (36 / (37 - reps));
+        if (weight == null || reps == null) {
+            alert("Please enter a valid weight and reps.");
+        } else {
+            document.getElementById("oneRepMax").innerHTML = "Your 1RM is: " + oneRepMax.toFixed(0) + "kg.";
+        }
+    }
+</script>
+
 </body>
 </html>

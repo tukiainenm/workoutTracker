@@ -26,8 +26,15 @@ public class WorkoutTrackerApplication {
             eRepository.save(new Exercise("Squat"));
             eRepository.save(new Exercise("Bench press"));
             eRepository.save(new Exercise("Deadlift"));
+            eRepository.save(new Exercise("Overhead press"));
+            eRepository.save(new Exercise("Barbell row"));
+            eRepository.save(new Exercise("Dumbbell row"));
+            eRepository.save(new Exercise("Dumbbell curls"));
+            eRepository.save(new Exercise("Tricep extension"));
+            eRepository.save(new Exercise("Tricep pushdown"));
 
-            //Example workouts
+
+
 
 
         };

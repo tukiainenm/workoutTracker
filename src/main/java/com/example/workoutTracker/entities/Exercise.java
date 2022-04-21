@@ -52,12 +52,9 @@ public class Exercise {
 
     @Override
     public String toString() {
-        return "Exercise{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", category=" + category +
-                '}';
+        return name;
     }
 }
+
 
 

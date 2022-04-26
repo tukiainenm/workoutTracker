@@ -2,11 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <title>Your workouts</title>
 </head>
 <body>
-<div th:replace="fragments :: header"></div>
+<div th:replace="fragments :: navbar"></div>
 
 <h1>Your past workouts</h1>
 
@@ -15,8 +18,9 @@
         <th>Date</th>
         <th>Workout name</th>
         <th>Exercises</th>
+        <th>Sets/Reps</th>
+        <th>Weight (kg)</th>
         <th>Delete workout</th>
-        <th>Edit workout</th>
     </tr>
     <tr th:each="workout : ${workouts}">
         <td th:text="${workout.date}"></td>
@@ -24,13 +28,33 @@
         <td>
             <ul>
                 <li th:each="exercise : ${workout.exercises}"
-                    th:text="${exercise.name}"></li>
+                    th:text="${exercise.name}">
+                </li>
             </ul>
         </td>
-        <td><a class="btn btn-danger"
-               th:href="@{/delete/{id}(id=${workout.id})}">Delete</a></td>
-        <td><a class="btn btn-warning"
-               th:href="@{/edit/{id}(id=${workout.id})}">Edit </a></td>
+
+        <td>
+            <ul>
+                <li th:each="exercise : ${workout.exercises}"
+                    th:text="${exercise.setsreps}">
+                </li>
+            </ul>
+        </td>
+
+        <td>
+            <ul>
+                <li th:each="exercise : ${workout.exercises}"
+                    th:text="${exercise.weight}">
+                </li>
+            </ul>
+        </td>
+    <td> <a class="btn btn-danger" th:href="@{/delete/{id}(id=${workout.id})}">Delete</a></td>
+
+
+
+
+
+
 
 
 </table>

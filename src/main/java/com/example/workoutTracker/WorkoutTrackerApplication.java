@@ -3,8 +3,7 @@ package com.example.workoutTracker;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import com.example.workoutTracker.entities.*;
-import com.example.workoutTracker.repositories.*;
+import com.example.workoutTracker.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -21,21 +20,6 @@ public class WorkoutTrackerApplication {
     @Bean
     public CommandLineRunner demo(exerciseRepository eRepository) {
         return (args) -> {
-            // Create Exercises
-            log.info("Creating some exercises");
-            eRepository.save(new Exercise("Squat"));
-            eRepository.save(new Exercise("Bench press"));
-            eRepository.save(new Exercise("Deadlift"));
-            eRepository.save(new Exercise("Overhead press"));
-            eRepository.save(new Exercise("Barbell row"));
-            eRepository.save(new Exercise("Dumbbell row"));
-            eRepository.save(new Exercise("Dumbbell curls"));
-            eRepository.save(new Exercise("Tricep extension"));
-            eRepository.save(new Exercise("Tricep pushdown"));
-
-
-
-
 
         };
     }

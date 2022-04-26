@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sign in</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{css/styles.css}"/>
 </head>
 <body>
+<div th:replace="fragments :: homenavbar"></div>
+<div class="center">
+    <h1>Workout App | Sign in</h1>
+    <div class="col-md-4">
+
+        <div th:if="${param.error}">
+            Invalid username or password
+        </div>
+
+        <div th:if="${param.logout}">
+            You have been logged out
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <div><label for="username">Username: </label>
+                <input type="text" name="username" id="username"></div>
+
+            <div><label for="password">Password: </label>
+                <input type="password" name="password" id="password"></div>
+
+            <input type="submit" class="btn btn-success" value="Login"/>
+            <a class="btn btn-primary" th:href="@{signup}">Sign up</a>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

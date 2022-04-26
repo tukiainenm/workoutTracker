@@ -1,6 +1,6 @@
-package com.example.workoutTracker.repositories;
+package com.example.workoutTracker.model;
 
-import com.example.workoutTracker.entities.Workout;
+import com.example.workoutTracker.model.Workout;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

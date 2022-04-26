@@ -1,7 +1,5 @@
-package com.example.workoutTracker.entities;
+package com.example.workoutTracker.model;
 
-
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -14,6 +12,8 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    private String setsreps;
+    private int weight;
 
     @ManyToMany
     private Set<Workout> workouts = new HashSet<>();
@@ -21,9 +21,9 @@ public class Exercise {
     public Exercise() {
     }
 
-    public Exercise(String name) {
+    public Exercise(String name, String setsreps) {
         this.name = name;
-
+        this.setsreps = setsreps;
     }
 
     public Long getId() {
@@ -42,10 +42,28 @@ public class Exercise {
         this.name = name;
     }
 
+    public String getSetsreps() {
+        return setsreps;
+    }
+
+    public void setSetsreps(String setsreps) {
+        this.setsreps = setsreps;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
     @Override
     public String toString() {
-        return name;
+        return "Exercise{" +
+                "name='" + name + '\'' +
+                ", setsreps='" + setsreps + '\'' +
+                '}';
     }
 }
 

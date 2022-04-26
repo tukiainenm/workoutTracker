@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <meta charset="UTF-8">
+    <title>Add an exercise</title>
+</head>
+<body>
+<div th:replace="fragments :: navbar"></div>
+<h1>Add your own exercise</h1>
+
+<form th:object="${exercise}" th:action="@{saveexercise}" action="#" method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" th:field="*{name}">
+
+        <label for="setsreps">Sets and reps</label>
+        <input type="text" class="form-control" id="setsreps" name="setsreps" th:field="*{setsreps}">
+
+        <label for="weight">Weight</label>
+        <input type="text" class="form-control" id="weight" name="weight" th:field="*{weight}">
+
+        <input type="submit" class="btn btn-primary" value="Save exercise">
+
+    </div>
+</form>
+
+
+
+</body>
+</html>

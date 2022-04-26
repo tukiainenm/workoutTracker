@@ -1,4 +1,4 @@
-package com.example.workoutTracker.entities;
+package com.example.workoutTracker.model;
 
 import javax.persistence.*;
 import java.util.*;
@@ -13,6 +13,7 @@ public class Workout {
     private String name;
     private String date;
 
+
     @ManyToMany
     private Set<Exercise> exercises = new HashSet<>();
 
@@ -21,6 +22,7 @@ public class Workout {
         this.date = date;
         this.name = name;
         this.exercises = exercises;
+
     }
 
     public Workout() {
@@ -50,6 +52,7 @@ public class Workout {
     public void setName(String name) {
         this.name = name;
     }
+
 
     public Set<Exercise> getExercises() {
         return exercises;

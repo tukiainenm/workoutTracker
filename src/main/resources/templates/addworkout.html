@@ -7,29 +7,35 @@
     <title>Create workouts</title>
 </head>
 <body>
-<div th:replace="fragments :: header"></div>
+<div th:replace="fragments :: navbar"></div>
 <h1>Add a workout</h1>
 
-<form th:action="@{save}" method="post">
-<div class="form-group">
-    <label for="name">Workout Name:</label>
-    <input type="text" class="form-control" id="name" th:field="${workout.name}">
 
-    <label for="date">Date:</label>
-    <input type="date" class="form-control" id="date" th:field="${workout.date}">
-</div>
 
-<div style="max-width: 700px">
-    <label th:for="exercises">Add exercises</label>
-    <list>
-        <ul th:each="exercise : ${exercises}">
-            <input type="checkbox" name="exercises" th:value="${exercise.id}"/>
-            <span th:text="${exercise.name}"></span>
-        </ul>
-    </list>
-</div>
+<form th:object="${workout}" th:action="@{save}" method="post">
+    <div class="form-group">
+        <label for="name">Workout Name:</label>
+        <input type="text" class="form-control" id="name" th:field="${workout.name}">
+
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" id="date" th:field="${workout.date}">
+    </div>
+
+    <div style="max-width: 700px">
+        <label th:for="exercises">Add exercises</label>
+        <list>
+            <ul th:each="exercise : ${exercises}">
+                <input type="checkbox" name="exercises" th:value="${exercise.id}"/>
+                <span th:text="${exercise.name}"></span>
+                <a th:text="${exercise.setsreps}"></a>
+            </ul>
+        </list>
+    </div>
     <input type="submit" class="btn btn-primary" value="Save"/>
+    <a href="addexercise" class="btn btn-primary">Add an exercise</a>
 </form>
+
+
 
 </body>
 </html>

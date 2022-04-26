@@ -6,11 +6,11 @@
     <title>1RM Calculator</title>
 </head>
 <body>
-<div th:replace="fragments :: header"></div>
+<div th:replace="fragments :: navbar"></div>
 
 
 <h1>Calculate your estimated one rep max</h1>
-<p>Click the button calculate</p>
+<p>Click the button to calculate</p>
 
 <button class="btn btn-success align-content-center" onclick="calculate()">Calculate</button>
 
@@ -24,7 +24,7 @@
         if (weight == null || reps == null) {
             alert("Please enter a valid weight and reps.");
         } else {
-            document.getElementById("oneRepMax").innerHTML = "Your 1RM is: " + oneRepMax.toFixed(0) + "kg.";
+            document.getElementById("oneRepMax").innerHTML = "Your estimated 1RM is: " + oneRepMax.toFixed(0) + "kg.";
         }
     }
 </script>

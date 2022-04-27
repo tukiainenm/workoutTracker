@@ -4,12 +4,13 @@
     <title>Sign up</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{css/styles.css}"/>
 </head>
 <body>
 
 <div th:replace="fragments :: homenavbar"></div>
 
-<div class="container">
+<div class="center">
     <h1>Sign-up</h1>
     <div class="col-md-4">
         <form th:object="${signUpForm}" th:action="@{/saveuser}" action="#" method="post">

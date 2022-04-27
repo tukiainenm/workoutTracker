@@ -1,7 +1,5 @@
 .center {
-    position: fixed;
-    top: 40%;
-    left: 35%;
-    transform: translate(0, -50%);
-    padding: 100px;
+    margin: auto;
+    width: 60%;
+    padding: 200px;
 }

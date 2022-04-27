@@ -8,7 +8,7 @@
 </head>
 <body>
 <div th:replace="fragments :: navbar"></div>
-<h1>Add your own exercise</h1>
+<h1>Add an exercise</h1>
 
 <form th:object="${exercise}" th:action="@{saveexercise}" action="#" method="post">
     <div class="form-group">
@@ -18,7 +18,7 @@
         <label for="setsreps">Sets and reps</label>
         <input type="text" class="form-control" id="setsreps" name="setsreps" th:field="*{setsreps}">
 
-        <label for="weight">Weight</label>
+        <label for="weight">Weight (kg)</label>
         <input type="text" class="form-control" id="weight" name="weight" th:field="*{weight}">
 
         <input type="submit" class="btn btn-primary" value="Save exercise">

@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" href="../static/css/styles.css" th:href="@{/css/styles.css}"/>
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
@@ -10,5 +11,7 @@
 <div class="col-md-4">
     <h3 th:inline="text">Welcome to the workout app, [[${#httpServletRequest.remoteUser}]]!</h3>
 </div>
+
+<div th:replace="fragments :: workouts"></div>
 </body>
 </html>

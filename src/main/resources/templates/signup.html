@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Sign up</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
 </head>
 <body>
 
@@ -22,15 +22,10 @@
                 <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>
             </div>
             <div>
-                <label> Re-type Password: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
+                <label> Re-type Password: <input type="password" th:field="*{passwordCheck}"
+                                                 class="form-control"/></label>
                 <p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>
             </div>
-
-            <div>
-                <label> Role : <input type="text" th:field="*{role}" class="form-control"/></label>
-            </div>
-
-
 
             <input type="submit" class="btn btn-primary" value="Sign up">
         </form>

@@ -9,7 +9,7 @@
 <body>
 <div th:replace="fragments :: navbar"></div>
 <h1>Add a workout</h1>
-
+<td><a class="btn btn-success" th:href="@{addexercise}">Add exercise</a></td>
 
 
 <form th:object="${workout}" th:action="@{save}" method="post">
@@ -22,20 +22,17 @@
     </div>
 
     <div style="max-width: 700px">
-        <label th:for="exercises">Add exercises</label>
         <list>
             <ul th:each="exercise : ${exercises}">
                 <input type="checkbox" name="exercises" th:value="${exercise.id}"/>
                 <span th:text="${exercise.name}"></span>
                 <a th:text="${exercise.setsreps}"></a>
+                <span th:text="${exercise.weight}"></span>
+                <td><a class="btn btn-danger" th:href="@{/deleteexercise/{id}(id=${exercise.id})}">Delete</a></td>
             </ul>
         </list>
     </div>
     <input type="submit" class="btn btn-primary" value="Save"/>
-    <a href="addexercise" class="btn btn-primary">Add an exercise</a>
 </form>
-
-
-
 </body>
 </html>

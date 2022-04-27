@@ -16,6 +16,10 @@
             <a class="nav-item nav-link" href="workouts">Your workouts</a>
             <a class="nav-item nav-link" href="add">Add a workout</a>
             <a class="nav-item nav-link" href="calculator">1RM Calculator</a>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Sign Out" class="btn btn-outline-danger my-2 my-sm-0" />
+            </form>
+
         </nav>
     </div>
 </div>
@@ -30,6 +34,28 @@
         </nav>
     </div>
 </div>
+
+<div th:fragment="workouts">
+
+    <div class="center">
+        <h2>Free programs to follow</h2>
+        <div class="row">
+            <div class="col">
+                <a href="https://liftvault.com/programs/powerlifting/peaking/jonnie-candito-6-week-strength-program-spreadsheet/">Candito 6 week</a>
+            </div>
+            <div class="col">
+                <a href="https://liftvault.com/programs/powerlifting/calgary-barbell-16-week-8-week-program-spreadsheets/">Calgary barbell</a>
+            </div>
+            <div class="col">
+                <a href="https://liftvault.com/programs/powerlifting/n-suns-lifting-spreadsheets/">N-Suns program</a>
+            </div>
+            <div class="row">
+                <a href="https://liftvault.com/">More programs</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
 
 </body>
 </html>

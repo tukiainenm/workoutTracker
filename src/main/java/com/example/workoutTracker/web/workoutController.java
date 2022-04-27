@@ -23,23 +23,26 @@ public class workoutController {
     @Autowired
     private workoutRepository wRepository;
 
-
+    //Method to display the login page
     @RequestMapping(value = "/login")
     public String login() {
         return "login";
     }
 
+    //Method to display the homepage
     @RequestMapping(value = {"/","/home"})
     public String home() {
         return "home";
     }
 
+    //Method to display the calculator site
     @RequestMapping(value = "/calculator")
     public String calculate() {
         return "calculator";
     }
 
 
+    //Method to display all workouts
     @RequestMapping(value = "/workouts")
     public String workoutList(Model model) {
         model.addAttribute("workouts", wRepository.findAll());
@@ -53,36 +56,55 @@ public class workoutController {
         return "addworkout";
     }
 
-    @RequestMapping(value = "/addexercise")
-    public String addExercise(Model model) {
-        model.addAttribute("exercise", new Exercise());
-        return "addexercise";
-    }
-
-    @RequestMapping(value = "/saveexercise", method = RequestMethod.POST)
-    public String saveExercise(@ModelAttribute("exercise") Exercise exercise, BindingResult bindingResult) {
-        eRepository.save(exercise);
-        return "redirect:add";
-    }
-
-
+    //Method to save a workout
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveExercise(@ModelAttribute Workout workout, BindingResult bindingResult) {
         wRepository.save(workout);
         return "redirect:workouts";
     }
 
+    //Method to add an exercise
+    @RequestMapping(value = "/addexercise")
+    public String addExercise(Model model) {
+        model.addAttribute("exercise", new Exercise());
+        return "addexercise";
+    }
+
+    //Method to save an exercise
+    @RequestMapping(value = "/saveexercise", method = RequestMethod.POST)
+    public String saveExercise(@ModelAttribute("exercise") Exercise exercise, BindingResult bindingResult) {
+        eRepository.save(exercise);
+        return "redirect:add";
+    }
+
+    //Method to delete a workout
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String deleteWorkout(@PathVariable("id") Long id, Model model) {
         wRepository.deleteById(id);
         return "redirect:../workouts";
     }
 
-    @RequestMapping(value = "/books", method = RequestMethod.GET)
+    //Method to delete an exercise
+    @RequestMapping(value = "/deleteexercise/{id}", method = RequestMethod.GET)
+    public String deleteExercise(@PathVariable("id") Long id, Model model) {
+        eRepository.deleteById(id);
+        return "redirect:../add";
+    }
+
+    //Rest method to get all exercises
+    @RequestMapping(value = "/allexercises", method = RequestMethod.GET)
     public @ResponseBody
-    List<Exercise> BookListRest() {
+    List<Exercise> exerciseListRest() {
         return (List<Exercise>) eRepository.findAll();
     }
+
+    //Rest method to get all workouts
+    @RequestMapping(value = "/allworkouts", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Workout> workoutListRest() {
+        return (List<Workout>) wRepository.findAll();
+    }
 }
+
 
 
